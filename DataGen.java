@@ -1,6 +1,8 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class DataGen {
     public static void main(String[] args) {
@@ -17,13 +19,13 @@ public class DataGen {
         Date myDate = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
         
-        String filename = String("data_").concat(sdf.format(myDate)).concat(".txt");
+        String filename = new String("data_").concat(sdf.format(myDate)).concat(".txt");
         try { 
             FileWriter outputFile = new FileWriter(filename);
-            Ramdom rand = new Random();
+            Random rand = new Random();
             
             for(int i=0; i< num; i++) {
-                outputFile.append(rand.nextInt(range));
+                outputFile.append(String.valueOf(rand.nextInt(range)));
                 outputFile.append(" ");
             }
             
