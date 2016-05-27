@@ -24,7 +24,7 @@ public class MinHeap{
         size++;
     }
     
-    public int readTop(){
+    public int getTop(){
         if(size==0) {
             return -1;
         }
@@ -34,7 +34,7 @@ public class MinHeap{
         return heap[size];
     }
     
-    public int getTop() {
+    public int readTop() {
         if(size==0) {
             return -1;
         }
