@@ -29,6 +29,7 @@ public class DataGen {
                 outputFile.append(" ");
             }
             
+            outputFile.appen("\n");
             outputFile.flush();
             outputFile.close();
             System.out.println("Created file " + filename);
