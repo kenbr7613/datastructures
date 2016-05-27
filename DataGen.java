@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 public class DataGen {
     public static void main(String[] args) {
@@ -13,19 +14,25 @@ public class DataGen {
             System.out.println("num and range must be greater than zero");
         }
         
+        Date myDate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
+        
+        String filename = String("data_").concat(sdf.format(myDate)).concat(".txt");
         try { 
-            FileWriter outputFile = new FileWriter("temp.txt");
+            FileWriter outputFile = new FileWriter(filename);
+            Ramdom rand = new Random();
             
-            outputFile.write("testststst");
+            for(int i=0; i< num; i++) {
+                outputFile.append(rand.nextInt(range));
+                outputFile.append(" ");
+            }
             
             outputFile.flush();
             outputFile.close();
+            System.out.println("Created file " + filename);
             
         } catch(IOException e) {
             e.printStackTrace();
         }
-        
-        
-        
     }
 }
